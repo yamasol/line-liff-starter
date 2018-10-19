@@ -74,6 +74,7 @@ function initializeApp(data) {
 
     document.getElementById('pushtemplate').addEventListener('click',function()
     {
+        document.getElementById('useridprofilefield').textContent = "pushtemplate";
         liff.getProfile().then(function (profile) {
             document.getElementById('useridprofilefield').textContent = profile.userId+"pushtemplate";
             var template = {
