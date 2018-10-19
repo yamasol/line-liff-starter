@@ -1,45 +1,8 @@
 window.onload = function (e) {
-    console.log('123')
-    document.getElementById('h1').textContent = "有更新1";
-    // document.getElementById('pushtemplate').addEventListener('click',function()
-    // {
-    //     document.getElementById('h1').textContent = "pushtemplate";
-      
-        
-
-     
-    //         var template = {
-    //             platformid :'1597689956',
-    //             platformtype :'PlatformLINE',
-    //             community_id : 1364648,
-    //             content:null,
-    //             message_type:'TemplateMessage',
-    //             attachmentid:null,
-    //             payload:
-    //             [{
-    //                 temp_title:'訂位成功',
-    //                 temp_text:'1位大人，1個兒童椅，1個輪椅 王先生 電話 +886923456789',
-    //                 temp_url:'https://ocard.co/resv/ocard?f=messenger&i=5ba37004db302e79468cebc4&a=2',
-    //                 temp_imgurl:'https://png.pngtree.com/element_origin_min_pic/17/01/03/7e8d113912e9e790520c5c3c1d0509e1.jpg',
-    //                 temp_buttons:
-    //                     [{
-    //                         btn_type:'postback',
-    //                         btn_label:'取消訂位',
-    //                         btn_postback:'取消訂位'
-    //                     }]}
-    //             ]};
-
-    //         var http = new XMLHttpRequest();
-    //         var url = 'https://chatbot.iqs-t.com:4443/api/publish';
-    //         http.open('POST',url,true);
-    //         http.setRequestHeader('Content-type', 'application/json');
-    //         http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
-    //         http.send(JSON.stringify(template));
-
-    //      document.getElementById('h1').textContent= JSON.stringify(template);
-
-           
-    //     });
+    document.getElementById('pushdata').addEventListener('click',function()
+    {
+        document.getElementById('h1').textContent = "有更新1";
+    })
 
     liff.init(function (data) {
         console.log(data)
@@ -55,11 +18,6 @@ function initializeApp(data) {
     document.getElementById('roomidfield').textContent = data.context.roomId;
     document.getElementById('groupidfield').textContent = data.context.groupId;
 
-    document.getElementById('pushdata').addEventListener('click',function()
-    {
-        testoutput();
-    })
-  
     // openWindow call
     document.getElementById('openwindowbutton').addEventListener('click', function () {
         liff.openWindow({
@@ -91,7 +49,7 @@ function initializeApp(data) {
     //get profile call
     document.getElementById('getprofilebutton').addEventListener('click', function () {
         liff.getProfile().then(function (profile) {
-            document.getElementById('useridprofilefield').textContent = profile.userId+"getprofilebutton";
+            document.getElementById('useridprofilefield').textContent = profile.userId;
             document.getElementById('displaynamefield').textContent = profile.displayName;
 
             var profilePictureDiv = document.getElementById('profilepicturediv');
@@ -112,8 +70,8 @@ function initializeApp(data) {
 
     document.getElementById('pushtemplate').addEventListener('click',function()
     {
-        document.getElementById('useridprofilefield').textContent = "pushtemplate";
         liff.getProfile().then(function (profile) {
+            document.getElementById('h1').textContent = profile.userId + " " + profile.displayName;
             document.getElementById('useridprofilefield').textContent = profile.userId+"pushtemplate";
             var template = {
                 platformid :'1597689956',
@@ -125,7 +83,7 @@ function initializeApp(data) {
                 payload:
                 [{
                     temp_title:'訂位成功',
-                    temp_text:'1位大人，1個兒童椅，1個輪椅 王先生 電話 +886923456789',
+                    temp_text:'1位大人，1個兒童椅，1個輪椅\r\n'+ profile.displayName +'先生/小姐\r\n電話 +886923456789',
                     temp_url:'https://ocard.co/resv/ocard?f=messenger&i=5ba37004db302e79468cebc4&a=2',
                     temp_imgurl:'https://png.pngtree.com/element_origin_min_pic/17/01/03/7e8d113912e9e790520c5c3c1d0509e1.jpg',
                     temp_buttons:
@@ -144,13 +102,14 @@ function initializeApp(data) {
             http.send(JSON.stringify(template));
             http.onreadystatechange = function() {
                 if (http.readyState == XMLHttpRequest.DONE) {
-                    alert(http.responseText);
+
+                    //http.responseText
+                    alert("訂位成功");
+                    liff.closeWindow();
                 }
             }
-        
-            document.getElementById('h1').textContent= JSON.stringify(template);
-           // document.getElementById('h1').textContent= JSON.stringify(template);
-
+            //document.getElementById('h1').textContent= JSON.stringify(template);
+          
         }).catch(function (error) {
             window.alert("Error getting profile: " + error);
         });
@@ -164,34 +123,4 @@ function toggleProfileData() {
     } else {
         elem.style.display = "block";
     }
-}
-
-function testoutput(){
-    var template = {
-        platformid : '1597689956',
-        platformtype :'PlatformLINE',
-        community_id :'Ufe20993e07630bb689e83eaad08a1694',
-        content:null,
-        message_type:'TemplateMessage',
-        attachmentid:null,
-        payload:
-        [
-            {
-                temp_title:'訂位成功',
-                temp_text:'1位大人，1個兒童椅，1個輪椅 王先生 電話 +886923456789',
-                temp_url:'https://ocard.co/resv/ocard?f=messenger&i=5ba37004db302e79468cebc4&a=2',
-                temp_imgurl:'https://png.pngtree.com/element_origin_min_pic/17/01/03/7e8d113912e9e790520c5c3c1d0509e1.jpg',
-                temp_buttons:
-                    [{
-                        btn_type:'postback',
-                        btn_label:'取消訂位',
-                        btn_postback:'取消訂位'
-                    }]
-            }
-        ]};
-    
-        document.getElementById('test').textContent = JSON.parse(template);
-        document.getElementById('h1').textContent = JSON.parse(template);
-   
-
 }
