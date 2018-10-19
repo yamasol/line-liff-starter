@@ -1,6 +1,6 @@
 window.onload = function (e) {
     console.log('123')
-    document.getElementById('h1').textContent = "有更新";
+    document.getElementById('h1').textContent = "有更新1";
     // document.getElementById('pushtemplate').addEventListener('click',function()
     // {
     //     document.getElementById('h1').textContent = "pushtemplate";
@@ -143,7 +143,7 @@ function initializeApp(data) {
             http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
             http.send(JSON.stringify(template));
             http.onreadystatechange = function() {
-                if (xhr.readyState == XMLHttpRequest.DONE) {
+                if (http.readyState == XMLHttpRequest.DONE) {
                     alert(http.responseText);
                 }
             }
