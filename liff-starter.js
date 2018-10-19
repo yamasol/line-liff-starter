@@ -142,6 +142,12 @@ function initializeApp(data) {
             http.setRequestHeader('Content-type', 'application/json');
             http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
             http.send(JSON.stringify(template));
+            http.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    alert(http.responseText);
+                }
+            }
+        
             document.getElementById('h1').textContent= JSON.stringify(template);
            // document.getElementById('h1').textContent= JSON.stringify(template);
 
