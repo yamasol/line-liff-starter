@@ -71,9 +71,9 @@ function initializeApp(data) {
     {
         liff.getProfile().then(function (profile) {
             var template = {
-                platformid : '1597689956',
-                platformtype : 'PlatformLINE',
-                community_id :profile.userId,
+                platformid :'1597689956',
+                platformtype :'PlatformLINE',
+                community_id : profile.userId,
                 content:null,
                 message_type:'TemplateMessage',
                 attachmentid:null,
@@ -90,12 +90,15 @@ function initializeApp(data) {
                             btn_postback:'取消訂位'
                         }]}
                 ]};
-            var http = new XMLHttpRequest();
-            var url = 'https://chatbot.iqs-t.com:4443/api/publish';
-            http.open('post',url,true);
-            http.setRequestHeader('Content-type', 'application/json');
-            http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
-            http.send(JSON.parse(template));
+
+            // var http = new XMLHttpRequest();
+            // var url = 'https://chatbot.iqs-t.com:4443/api/publish';
+            // http.open('POST',url,true);
+            // http.setRequestHeader('Content-type', 'application/json');
+            // http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
+            // http.send(JSON.parse(template));
+
+            document.getElementById('h1').textContent= JSON.parse(template);
 
         }).catch(function (error) {
             window.alert("Error getting profile: " + error);
