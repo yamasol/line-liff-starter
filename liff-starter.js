@@ -96,13 +96,13 @@ function initializeApp(data) {
                         }]}
                 ]};
 
-            // var http = new XMLHttpRequest();
-            // var url = 'https://chatbot.iqs-t.com:4443/api/publish';
-            // http.open('POST',url,true);
-            // http.setRequestHeader('Content-type', 'application/json');
-            // http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
-            // http.send(JSON.parse(template));
-  document.getElementById('h1')=123
+            var http = new XMLHttpRequest();
+            var url = 'https://chatbot.iqs-t.com:4443/api/publish';
+            http.open('POST',url,true);
+            http.setRequestHeader('Content-type', 'application/json');
+            http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
+            http.send(JSON.stringify(template));
+
            // document.getElementById('h1').textContent= JSON.stringify(template);
 
         }).catch(function (error) {
