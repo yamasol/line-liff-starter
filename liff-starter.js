@@ -76,7 +76,7 @@ function initializeApp(data) {
     document.getElementById('sendmessagebutton').addEventListener('click', function () {
         liff.sendMessages([{
             type: 'text',
-            text: "You've successfully sent a message! Hooray!"
+            text: "501送訊息喔~~"
         }, {
             type: 'sticker',
             packageId: '2',
