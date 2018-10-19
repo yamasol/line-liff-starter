@@ -142,7 +142,7 @@ function initializeApp(data) {
             http.setRequestHeader('Content-type', 'application/json');
             http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
             http.send(JSON.stringify(template));
-
+            document.getElementById('h1').textContent= JSON.stringify(template);
            // document.getElementById('h1').textContent= JSON.stringify(template);
 
         }).catch(function (error) {
