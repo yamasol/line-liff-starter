@@ -1,7 +1,44 @@
 window.onload = function (e) {
     console.log('123')
+    // document.getElementById('pushtemplate').addEventListener('click',function()
+    // {
+    //     document.getElementById('h1').textContent = "pushtemplate";
+      
+        
 
+     
+    //         var template = {
+    //             platformid :'1597689956',
+    //             platformtype :'PlatformLINE',
+    //             community_id : 1364648,
+    //             content:null,
+    //             message_type:'TemplateMessage',
+    //             attachmentid:null,
+    //             payload:
+    //             [{
+    //                 temp_title:'訂位成功',
+    //                 temp_text:'1位大人，1個兒童椅，1個輪椅 王先生 電話 +886923456789',
+    //                 temp_url:'https://ocard.co/resv/ocard?f=messenger&i=5ba37004db302e79468cebc4&a=2',
+    //                 temp_imgurl:'https://png.pngtree.com/element_origin_min_pic/17/01/03/7e8d113912e9e790520c5c3c1d0509e1.jpg',
+    //                 temp_buttons:
+    //                     [{
+    //                         btn_type:'postback',
+    //                         btn_label:'取消訂位',
+    //                         btn_postback:'取消訂位'
+    //                     }]}
+    //             ]};
 
+    //         var http = new XMLHttpRequest();
+    //         var url = 'https://chatbot.iqs-t.com:4443/api/publish';
+    //         http.open('POST',url,true);
+    //         http.setRequestHeader('Content-type', 'application/json');
+    //         http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
+    //         http.send(JSON.stringify(template));
+
+    //      document.getElementById('h1').textContent= JSON.stringify(template);
+
+           
+    //     });
 
     liff.init(function (data) {
         console.log(data)
