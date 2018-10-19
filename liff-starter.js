@@ -53,7 +53,7 @@ function initializeApp(data) {
     //get profile call
     document.getElementById('getprofilebutton').addEventListener('click', function () {
         liff.getProfile().then(function (profile) {
-            document.getElementById('useridprofilefield').textContent = profile.userId;
+            document.getElementById('useridprofilefield').textContent = profile.userId+"getprofilebutton";
             document.getElementById('displaynamefield').textContent = profile.displayName;
 
             var profilePictureDiv = document.getElementById('profilepicturediv');
