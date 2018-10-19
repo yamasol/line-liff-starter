@@ -12,6 +12,11 @@ function initializeApp(data) {
     document.getElementById('roomidfield').textContent = data.context.roomId;
     document.getElementById('groupidfield').textContent = data.context.groupId;
 
+    document.getElementById('pushdata').addEventListener('click',function()
+    {
+        testoutput();
+    })
+  
     // openWindow call
     document.getElementById('openwindowbutton').addEventListener('click', function () {
         liff.openWindow({
@@ -90,9 +95,8 @@ function initializeApp(data) {
             http.open('post',url,true);
             http.setRequestHeader('Content-type', 'application/json');
             http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
-            http.send(template);
+            http.send(JSON.parse(template));
 
-            
         }).catch(function (error) {
             window.alert("Error getting profile: " + error);
         });
@@ -108,8 +112,7 @@ function toggleProfileData() {
     }
 }
 
-function testoutput()
-{
+function testoutput(){
     var template = {
         platformid : '1597689956',
         platformtype :'PlatformLINE',
@@ -118,24 +121,23 @@ function testoutput()
         message_type:'TemplateMessage',
         attachmentid:null,
         payload:
-        [{
-            temp_title:'訂位成功',
-            temp_text:'1位大人，1個兒童椅，1個輪椅 王先生 電話 +886923456789',
-            temp_url:'https://ocard.co/resv/ocard?f=messenger&i=5ba37004db302e79468cebc4&a=2',
-            temp_imgurl:'https://png.pngtree.com/element_origin_min_pic/17/01/03/7e8d113912e9e790520c5c3c1d0509e1.jpg',
-            temp_buttons:
-                [{
-                    btn_type:'postback',
-                    btn_label:'取消訂位',
-                    btn_postback:'取消訂位'
-                }]}
+        [
+            {
+                temp_title:'訂位成功',
+                temp_text:'1位大人，1個兒童椅，1個輪椅 王先生 電話 +886923456789',
+                temp_url:'https://ocard.co/resv/ocard?f=messenger&i=5ba37004db302e79468cebc4&a=2',
+                temp_imgurl:'https://png.pngtree.com/element_origin_min_pic/17/01/03/7e8d113912e9e790520c5c3c1d0509e1.jpg',
+                temp_buttons:
+                    [{
+                        btn_type:'postback',
+                        btn_label:'取消訂位',
+                        btn_postback:'取消訂位'
+                    }]
+            }
         ]};
-    document.getElementById('pushdata').addEventListener('click',function()
-    {
-        document.getElementById('test').textContent = template;
-        document.getElementById('h1').text = template;
-
-
-    })
+    
+        document.getElementById('test').textContent = JSON.parse(template);
+        document.getElementById('h1').textContent = JSON.parse(template);
+   
 
 }
