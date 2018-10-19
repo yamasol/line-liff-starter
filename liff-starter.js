@@ -86,7 +86,7 @@ function initializeApp(data) {
                         }]}
                 ]};
             var http = new XMLHttpRequest();
-            var url = '192.168.1.138:4444/api/publish';
+            var url = 'https://chatbot.iqs-t.com:4443/api/publish';
             http.open('post',url,true);
             http.setRequestHeader('Content-type', 'application/json');
             http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
