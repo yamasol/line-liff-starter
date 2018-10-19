@@ -63,19 +63,10 @@ function initializeApp(data) {
     });
 
     document.getElementById('pushbtn').addEventListener('click',function(){
-        var text = document.getElementById('words').Value;
-        var location = document.getElementById('location');
-        var gender = document.getElementById('gender').Value;
-
-        var txt = document.getElementById('output');
-        txt.textContent = text;
+        liff.getProfile().then(function(profile){
+            document.getElementById('h3').textContent = profile.displayName;  
     });
-
-
-
-
-
-
+});
 }
 
 function toggleProfileData() {
