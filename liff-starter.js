@@ -1,5 +1,8 @@
 window.onload = function (e) {
     console.log('123')
+
+
+
     liff.init(function (data) {
         console.log(data)
         initializeApp(data);
@@ -99,8 +102,8 @@ function initializeApp(data) {
             // http.setRequestHeader('Content-type', 'application/json');
             // http.setRequestHeader('Channel-Authorization', 'nvOcQMfERrASHCIuE797');
             // http.send(JSON.parse(template));
-
-            document.getElementById('h1').textContent= JSON.stringify(template);
+  document.getElementById('h1')=123
+           // document.getElementById('h1').textContent= JSON.stringify(template);
 
         }).catch(function (error) {
             window.alert("Error getting profile: " + error);
