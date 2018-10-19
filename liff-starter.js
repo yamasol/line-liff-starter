@@ -61,12 +61,6 @@ function initializeApp(data) {
             window.alert("Error getting profile: " + error);
         });
     });
-
-    document.getElementById('pushbtn').addEventListener('click',function(){
-        liff.getProfile().then(function(profile){
-            document.getElementById('h3').textContent = profile.displayName;  
-    });
-});
 }
 
 function toggleProfileData() {

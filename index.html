@@ -14,6 +14,10 @@
             <button id="getprofilebutton">Get Profile</button>
             <button id="sendmessagebutton">Send Message</button>
         </div>
+        <div class="buttonrow">
+            <button id="pushdata">送出訊息</button>
+            <button id="pushtemplate">網路定位</button>
+        </div>
     </div>
 
     <div id="profileinfo">
@@ -67,43 +71,6 @@
         </table>
     </div>
 
-    <div id="liffdata">
-        <h2>Push</h2>
-        <table border="1">
-            <tr>
-                <th>你的大名</th>
-                <td><input type="text" id="words"></td>
-            </tr>
-            <tr>
-            <th>你住哪</th>
-            <td>
-                <select name="YourLocation" id="location">
-                　<option value="Taipei">台北</option>
-                　<option value="Taoyuan">桃園</option>
-                　<option value="Hsinchu">新竹</option>
-                　<option value="Miaoli">苗栗</option>
-               </select>
-            </td> 
-            </tr>
-            <tr>
-                    <th>性別</th>
-                <td id="gender">
-                    
-                    <input type="radio" name="gender" value="男"> 男
-                    <input type="radio" name="gender" value="女"> 女
-                </td>
-            </tr>
-            <tr>
-                <th>確認</th>
-                <td><button id="pushbtn">Send Message</button></td></td>
-                
-            </tr>
-        </table>
-    </div>
-
-    <h3 id="output">測試完成</h3>
-    <h3 id="h3">123</h3>
-    
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script src="liff-starter.js"></script>
 </body>
