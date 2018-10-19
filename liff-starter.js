@@ -1,5 +1,6 @@
 window.onload = function (e) {
     console.log('123')
+    document.getElementById('h1').textContent = "有更新";
     // document.getElementById('pushtemplate').addEventListener('click',function()
     // {
     //     document.getElementById('h1').textContent = "pushtemplate";
